@@ -14,4 +14,8 @@ public class DragObject : MonoBehaviour
         body.drag = 0.5f;
         body.angularDrag = 0.5f;
     }
+    private void Update()
+    {
+        body.useGravity = true;    
+    }
 }
