@@ -26,7 +26,6 @@ public class Drag : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         if (Input.GetMouseButton(0))
         {
-
             //Drag object at hand
             if (Physics.SphereCast(ray, hand.handRange, out hit, hand.handRange, layerMask))
             {
@@ -35,10 +34,6 @@ public class Drag : MonoBehaviour
                 CheckGravity(hit, isDragging);
 
                 chargeTime++;
-               // print("Charge Forcec: " + Mathf.Clamp(chargeTime, 0f, 1000f));
-            }
-            else
-            {
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -61,12 +56,8 @@ public class Drag : MonoBehaviour
     }
     void CheckGravity(RaycastHit hit, bool isDragging)
     {
-            //checks the gravity
-            hit.rigidbody.useGravity = !isDragging;
-            Debug.Log("Gravity: " + !isDragging);
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
+        //checks the gravity
+        hit.rigidbody.useGravity = !isDragging;
+        Debug.Log("Gravity: " + !isDragging);
     }
 }
